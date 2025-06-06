@@ -1,0 +1,320 @@
+a tic tac toe game based on(visualstudio.windows form app csharp)
+it is easy game players by clicking 1 to 9 from thier keyboards can put (x,o) to grid
+how to play game:
+each number you press from your keyboard works like this:
+  1 | 2 | 3  
+-----------
+ 4 | 5 | 6  
+-----------
+ 7 | 8 | 9  
+the players who places three of (x,o) in a row like(horizontally, vertically)win
+if players fills board whitout the game condtion game will whitout any winner
+the code:
+ using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp26
+{
+    public partial class Form1 : Form
+    {
+        char[,] A = new char[7, 7];
+        int moveCount = 0;
+        
+        int i, j;
+        public Form1()
+        {
+            InitializeComponent();
+            
+
+        }
+        
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 7; i++)
+                for (int j = 0; j < 7; j++)
+                    A[i, j] = '0';
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+            
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case (char)49: 
+                    if (A[0, 0] == '0')
+                    {
+                        A[0, 0] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label1.Text = A[0, 0].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)50: 
+                    if (A[0, 1] == '0')
+                    {
+                        A[0, 1] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label2.Text = A[0, 1].ToString();
+                        moveCount++;
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)51:
+                    if (A[0, 2] == '0')
+                    {
+                        A[0, 2] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label3.Text = A[0, 2].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)52:
+                    if (A[1, 0] == '0')
+                    {
+                        A[1, 0] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label4.Text = A[1, 0].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)53: 
+                    if (A[1, 1] == '0')
+                    {
+                        A[1, 1] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label5.Text = A[1, 1].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)54: 
+                    if (A[1, 2] == '0')
+                    {
+                        A[1, 2] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label6.Text = A[1, 2].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)55: 
+                    if (A[2, 0] == '0')
+                    {
+                        A[2, 0] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label7.Text = A[2, 0].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)56:
+                    if (A[2, 1] == '0')
+                    {
+                        A[2, 1] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label8.Text = A[2, 1].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+
+                case (char)57: 
+                    if (A[2, 2] == '0')
+                    {
+                        A[2, 2] = moveCount % 2 == 0 ? 'X' : 'O';
+                        label9.Text = A[2, 2].ToString();
+                        moveCount++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("this place was used try again");
+                    }
+                    break;
+            }
+
+
+
+            if (A[0, 0] == 'X' && A[1, 1] == 'X' && A[2, 2] == 'X')
+             {
+                    MessageBox.Show("player 1 won");
+                    
+             }
+                if (A[0, 2] == 'X' && A[1, 1] == 'X' && A[2, 0] == 'X')
+                {
+                    MessageBox.Show("player 1 won");
+                    
+                }
+                if (A[0, 0] == 'X' && A[0, 1] == 'X' && A[0, 2] == 'X')
+                {
+                    MessageBox.Show("player 1    won");
+                    
+                }
+                if (A[1, 0] == 'X' && A[1, 1] == 'X' && A[1, 2] == 'X')
+                {
+                    MessageBox.Show("player 1 won");
+                    
+                }
+                if    (A[2, 0] == 'X' && A[2, 1] == 'X' && A[2, 2] == 'X')
+                {
+                    MessageBox.Show("player 1 won");
+                    
+                }
+                if (A[0, 0] == 'X' && A[1, 0] == 'X' && A[2, 0] == 'X')
+                {   
+                    MessageBox.Show("player 1 won");
+                   
+                }
+                if  (A[0, 1] == 'X' && A[1, 1] == 'X' && A[2, 1] == 'X')
+                {
+                    MessageBox.Show("player 1 won");
+                    
+                }
+                if  (A[0, 2] == 'X' && A[1, 2] == 'X' && A[2, 2] == 'X')
+                {
+                    MessageBox.Show("player 1 won");
+                   
+                }
+                if (A[0, 0] == 'X' && A[1, 1] == 'X' && A[2, 2] == 'X')
+                {
+                    MessageBox.Show("player 1 won");
+                    
+                }
+            
+
+            int flag = 0;
+            for ( i = 0; i < 3; i++)
+            {
+                for ( j = 0; j < 3; j++)
+                {
+                    if (A[i, j] == '0')
+                    {
+                        flag = 1;
+                        break;
+                    }
+                }
+                
+            }
+
+            if (flag == 0)
+            {
+                MessageBox.Show("Game is a draw!");
+               
+                
+                
+            }
+
+
+            if (A[0, 2] == 'O' && A[1, 1] == 'O' && A[2, 0] == 'O')
+              {
+                    MessageBox.Show("player 2 won");
+                    
+                }
+                if (A[0, 0] == 'O' && A[0, 1] == 'O' && A[0, 2] == 'O')
+                {
+                    MessageBox.Show("player 2 won");
+                    
+                }
+                if (A[1, 0] == 'O' && A[1, 1] == 'O' && A[1, 2] == 'O')
+                {
+                   MessageBox.Show("player 2 won");
+                    
+                }
+                if (A[2, 0] == 'O' && A[2, 1] == 'O' && A[2, 2] == 'O')
+                {
+                    MessageBox.Show("player 2 won");
+                    
+                }
+                if (A[0, 0] == 'O' && A[1, 0] == 'O' && A[2, 0] == 'O')
+                {
+                    MessageBox.Show("player 2 won");
+                    
+                }
+                if (A[0, 1] == 'O' && A[1, 1] == 'O' && A[2, 1] == 'O')
+                {
+                    MessageBox.Show("player 2 won");
+                    
+                }
+                if (A[0, 2] == 'O' && A[1, 2] == 'O' && A[2, 2] == 'O')
+                {
+                    MessageBox.Show("player 2 won");
+                    
+                }
+
+
+
+            
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j< 3; j++)
+                {
+                    if (A[i, j] == '0')
+                    {
+                        flag = 1;
+                        break;
+                    }
+                }
+
+            }
+
+            
+
+
+        }
+    }
+}
+
+    
+
+
+
+ how to start game?
+ open/instal visual stduio  and creat windows form app
+ copy the code
+ play game whit your friend and enjoy
+ 
+ from:[aliamir31](https://github.com/aliamir31)
